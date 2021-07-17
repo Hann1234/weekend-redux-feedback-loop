@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 
 function ThankYou() {
+
+    const history = useHistory();
     
     return (
         <div>
@@ -11,4 +13,4 @@ function ThankYou() {
     )
 }
 
-history.push('/thankyou');
+export default ThankYou;
