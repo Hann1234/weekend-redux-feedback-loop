@@ -46,7 +46,18 @@ let storeInstance= createStore(
         comments,
     }),
     applyMiddleware(logger)
-)
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Provider added to ReactDOM
+ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={storeInstance}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+
+// ReactDOM.render(<App />, document.getElementById('root'));
+
 registerServiceWorker();
