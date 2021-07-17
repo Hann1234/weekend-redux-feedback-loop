@@ -3,15 +3,19 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 function FeelingInput() {
-    const [feeling, setFeeling] = useState(3);
+    const [feeling, setFeeling] = useState();
     const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSubmit = (event) => {
+
+        if (!feeling) {
+            alert('Please pick a value.')
+        }
+
+        else {
         // Don't reload on form submit
         event.preventDefault();
-
-       // Radio Button 3 is pre-clicked for the user so no verification needed as an empty value is not possible
 
         // Tell redux that we want to add new feeling info
         dispatch({
@@ -20,11 +24,9 @@ function FeelingInput() {
             payload: feeling
         });
 
-        // Clear the form field
-        setFeeling(3);
-
         // direct browser to next route
         history.push('/understanding');
+        }
    };
 
    return (
@@ -36,7 +38,7 @@ function FeelingInput() {
                 id="1" 
                 name="1_thru_5"
                 value={feeling}
-                onClick={event => setFeeling(1)}
+                onClick={() => setFeeling(1)}
                 />
                 <label htmlFor="1">1</label><br/>
             <input 
@@ -44,16 +46,15 @@ function FeelingInput() {
                 id="2" 
                 name="1_thru_5"
                 value={feeling}
-                onClick={event => setFeeling(2)}
+                onClick={() => setFeeling(2)}
                 />
                 <label htmlFor="2">2</label><br/>
             <input 
                 type="radio"
                 id="3" 
                 name="1_thru_5"
-                checked="checked"
                 value={feeling}
-                onClick={event => setFeeling(3)}
+                onClick={() => setFeeling(3)}
                 />
                 <label htmlFor="3">3</label><br/>
             <input 
@@ -61,7 +62,7 @@ function FeelingInput() {
                 id="4" 
                 name="1_thru_5"
                 value={feeling}
-                onClick={event => setFeeling(4)}
+                onClick={() => setFeeling(4)}
                 />
                 <label htmlFor="4">4</label><br/>
             <input 
@@ -69,7 +70,7 @@ function FeelingInput() {
                 id="5" 
                 name="1_thru_5"
                 value={feeling}
-                onClick={event => setFeeling(5)}
+                onClick={() => setFeeling(5)}
                 />
                 <label htmlFor="5">5</label><br/>
             <button type="submit">Next</button>

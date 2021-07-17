@@ -8,7 +8,7 @@ function ThankYou() {
         <div>
             <h1>Success! Feedback has been submitted.</h1>
             <h2>Thank You!</h2>
-            <button onClick={ () => history.push('/')} >Checkout</button>
+            <button onClick={ () => history.push('/')} >Leave New Feedback</button>
         </div>
     )
 }

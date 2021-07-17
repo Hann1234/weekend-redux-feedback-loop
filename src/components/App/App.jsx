@@ -6,8 +6,9 @@ import './App.css';
 import FeelingInput from '../FeelingInput/FeelingInput';
 import UnderstandingInput from '../UnderstandingInput/UnderstandingInput';
 import SupportInput from '../SupportInput/SupportInput';
+import CommentsInput from '../CommentsInput/CommentsInput';
 import Review from '../Review/Review';
-import ThankYou from '..ThankYou/ThankYou'
+import ThankYou from '../ThankYou/ThankYou'
 
 function App() {
 

@@ -14,10 +14,10 @@ function Review() {
         event.preventDefault();
 
         const feedbackPost = {
-            feeling: store.feeling,
-            understanding: store.understanding,
-            support: store.support,
-            comments: store.comments
+            feeling: feedback.feeling,
+            understanding: feedback.understanding,
+            support: feedback.support,
+            comments: feedback.comments
         };
 
         axios.post("/feedback", feedbackPost)

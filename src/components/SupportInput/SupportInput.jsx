@@ -3,15 +3,19 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 function SupportInput() {
-    const [support, setSupport] = useState(3);
+    const [support, setSupport] = useState();
     const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSubmit = (event) => {
+
+        if (!support) {
+            alert('Please pick a value.')
+        }
+
+        else {
         // Don't reload on form submit
         event.preventDefault();
-
-       // Radio Button 3 is pre-clicked for the user so no verification needed as an empty value is not possible
 
         // Tell redux that we want to add new info
         dispatch({
@@ -20,11 +24,9 @@ function SupportInput() {
             payload: support
         });
 
-        // Clear the form field
-        setSupport(3);
-
         // direct browser to next route
         history.push('/comments');
+        }
    };
 
    return (
@@ -36,7 +38,7 @@ function SupportInput() {
                 id="1" 
                 name="1_thru_5"
                 value={support}
-                onClick={event => setSupport(1)}
+                onClick={() => setSupport(1)}
                 />
                 <label htmlFor="1">1</label><br/>
             <input 
@@ -44,16 +46,15 @@ function SupportInput() {
                 id="2" 
                 name="1_thru_5"
                 value={support}
-                onClick={event => setSupport(2)}
+                onClick={() => setSupport(2)}
                 />
                 <label htmlFor="2">2</label><br/>
             <input 
                 type="radio"
                 id="3" 
                 name="1_thru_5"
-                checked="checked"
                 value={support}
-                onClick={event => setSupport(3)}
+                onClick={() => setSupport(3)}
                 />
                 <label htmlFor="3">3</label><br/>
             <input 
@@ -61,7 +62,7 @@ function SupportInput() {
                 id="4" 
                 name="1_thru_5"
                 value={support}
-                onClick={event => setSupport(4)}
+                onClick={() => setSupport(4)}
                 />
                 <label htmlFor="4">4</label><br/>
             <input 
@@ -69,7 +70,7 @@ function SupportInput() {
                 id="5" 
                 name="1_thru_5"
                 value={support}
-                onClick={event => setSupport(5)}
+                onClick={() => setSupport(5)}
                 />
                 <label htmlFor="5">5</label><br/>
             <button type="submit">Next</button>
