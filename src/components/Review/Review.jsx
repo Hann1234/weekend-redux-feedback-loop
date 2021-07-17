@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function Review() {
 
     const feedback = useSelector(store => store);
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleClick = () => {
@@ -26,6 +27,27 @@ function Review() {
             .catch(error => {
                 console.log('Error submitting feedback', error);
             });
+
+            // Tell redux that we want to clear the reducers
+        dispatch({
+            type: 'ADD_FEELING',
+            payload: ''
+        });
+
+        dispatch({
+            type: 'ADD_UNDERSTANDING',
+            payload: ''
+        });
+
+        dispatch({
+            type: 'ADD_SUPPORT',
+            payload: ''
+        });
+
+        dispatch({
+            type: 'ADD_COMMENTS',
+            payload: ''
+        });
 
         // direct browser to next route
         history.push('/thankyou');
