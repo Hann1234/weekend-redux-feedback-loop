@@ -6,6 +6,8 @@ import './App.css';
 import FeelingInput from '../FeelingInput/FeelingInput';
 import UnderstandingInput from '../UnderstandingInput/UnderstandingInput';
 import SupportInput from '../SupportInput/SupportInput';
+import Review from '../Review/Review';
+import ThankYou from '..ThankYou/ThankYou'
 
 function App() {
 
@@ -30,6 +32,9 @@ function App() {
         </Route> 
         <Route path='/review' exact>
           <Review />
+        </Route> 
+        <Route path='/thankyou' exact>
+          <ThankYou />
         </Route> 
       </div>
     </Router>
