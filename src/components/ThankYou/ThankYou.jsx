@@ -13,4 +13,7 @@ function ThankYou() {
     )
 }
 
+// I am clearing the reducers in the review component because that is when the info is submitted
+// the user can exit the application instead of clicking 'leave new feedback' so if we wait to clear it on the thank you page it wont clear the reducers...
+
 export default ThankYou;

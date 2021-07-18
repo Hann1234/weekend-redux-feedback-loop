@@ -29,6 +29,8 @@ function Review() {
             });
 
             // Tell redux that we want to clear the reducers
+            // doesnt make sense to clear on thank you page as seeing the user might exit the application instead of submitting more feedback
+            
         dispatch({
             type: 'ADD_FEELING',
             payload: ''
